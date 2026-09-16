@@ -248,23 +248,45 @@ section.tight { padding: 48px 0; }
 
 .hero {
   position: relative;
-  background: linear-gradient(120deg, var(--forest-dark) 0%, var(--forest) 65%);
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
   color: var(--white);
   overflow: hidden;
 }
 
-.hero .container {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 48px;
-  align-items: center;
-  padding-top: 84px;
-  padding-bottom: 84px;
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(18,39,30,0.55) 0%, rgba(18,39,30,0.72) 55%, rgba(18,39,30,0.92) 100%);
+}
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  width: 100%;
+}
+
+.hero-content { max-width: 620px; }
 
 .hero h1 { color: var(--white); }
 
-.hero .lede { color: rgba(255,255,255,0.82); }
+.hero .lede { color: rgba(255,255,255,0.88); }
 
 .hero-actions {
   display: flex;
@@ -273,28 +295,10 @@ section.tight { padding: 48px 0; }
   margin-top: 32px;
 }
 
-.hero-figure {
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  position: relative;
-}
-.hero-figure img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
-
-.hero-figure figcaption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 14px 18px;
-  background: linear-gradient(0deg, rgba(18,39,30,0.85), transparent);
-  color: var(--white);
-  font-size: 0.82rem;
-  margin: 0;
-}
-
 .hero-stats {
   display: flex;
   gap: 28px;
-  margin-top: 40px;
+  margin-top: 44px;
   flex-wrap: wrap;
 }
 .hero-stats div { min-width: 110px; }
@@ -304,7 +308,7 @@ section.tight { padding: 48px 0; }
   font-size: 1.7rem;
   color: var(--amber);
 }
-.hero-stats span { font-size: 0.82rem; color: rgba(255,255,255,0.72); }
+.hero-stats span { font-size: 0.82rem; color: rgba(255,255,255,0.8); }
 
 .page-hero {
   background: linear-gradient(120deg, var(--forest-dark), var(--forest));
@@ -323,8 +327,7 @@ section.tight { padding: 48px 0; }
 @media (max-width: 900px) {
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-2 { grid-template-columns: 1fr; }
-  .hero .container { grid-template-columns: 1fr; padding-top: 56px; padding-bottom: 56px; }
-  .hero-figure { order: -1; }
+  .hero-inner { padding-top: 96px; padding-bottom: 56px; }
 }
 @media (max-width: 620px) {
   .grid-3, .grid-4 { grid-template-columns: 1fr; }
