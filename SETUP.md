@@ -62,68 +62,54 @@ partir de `Financement/Pitch Deck France Méthanisation V3.pptx`. Pensez à
 regénérer ce PDF (export PowerPoint → PDF) à chaque mise à jour du pitch
 deck, et à remplacer le fichier dans ce dossier.
 
-## 5. Hébergement
+## 5. Hébergement : GitHub Pages (mis en place)
 
-Le site est 100% statique : il peut être déployé tel quel sur Netlify,
-Vercel, OVH, o2switch, GitHub Pages, etc. Il suffit d'y transférer tout le
-contenu de ce dossier.
-
-## 6. Déploiement vers IONOS via GitHub (mis en place)
-
-Le site source vit sur GitHub :
-[TerenceBurcelin/france-methanisation-site](https://github.com/TerenceBurcelin/france-methanisation-site)
-(dépôt privé). Un workflow GitHub Actions (`.github/workflows/deploy.yml`)
-publie automatiquement tout le contenu de ce dossier sur l'hébergement IONOS
-par SFTP à chaque `git push` sur la branche `main`.
-
-Le workflow retire ce fichier (`SETUP.md`) avant publication et resynchronise
-exactement le dossier distant `IONOS_REMOTE_DIR` sur le contenu du dépôt
-(`delete_remote_files: true`) : tout fichier supprimé du dépôt disparaît
-aussi du serveur au déploiement suivant.
+Le site est hébergé directement par **GitHub Pages** — pas de serveur IONOS
+pour ce site, pas de SFTP, pas d'identifiant à gérer. Le dépôt source est :
+[TerenceBurcelin/france-methanisation-site](https://github.com/TerenceBurcelin/france-methanisation-site).
 
 Concrètement : quand vous demandez une modification à Claude, il édite les
-fichiers, commit et pousse sur GitHub — le site en ligne se met à jour tout
-seul 30 secondes à 1 minute plus tard, sans que Claude ait jamais besoin de
-vos identifiants IONOS.
+fichiers, commit et pousse sur GitHub — GitHub republie automatiquement le
+site en 1 à 2 minutes. Aucune étape supplémentaire, aucun identifiant IONOS
+n'est jamais nécessaire pour publier.
 
-### 6.1 Secrets à configurer une seule fois dans GitHub
+Le fichier `CNAME` à la racine du dépôt (contenant `france-methanisation.com`)
+indique à GitHub Pages quel domaine personnalisé servir — ne pas le
+supprimer.
 
-Dans le dépôt : **Settings → Secrets and variables → Actions → New
-repository secret**. Récupérez les valeurs dans le panneau IONOS
-(Hébergement → votre package → FTP & SFTP → Accès SFTP) :
+### 5.1 Configuration one-shot déjà faite / à faire
 
-| Nom du secret        | Valeur                                            |
-|-----------------------|---------------------------------------------------|
-| `IONOS_SFTP_HOST`     | ex. `access-xxxxxxxx.webspace-host.com`           |
-| `IONOS_SFTP_USER`     | votre utilisateur SFTP IONOS                       |
-| `IONOS_SFTP_PASS`     | votre mot de passe SFTP IONOS                      |
-| `IONOS_SFTP_PORT`     | en général `22`                                    |
-| `IONOS_REMOTE_DIR`    | dossier racine du site (souvent `/`)               |
+- [x] Fichier `CNAME` ajouté au dépôt.
+- [ ] Rendre le dépôt **public** (Settings → General → Danger Zone → Change
+      visibility) — obligatoire pour utiliser GitHub Pages gratuitement sur
+      un compte personnel. Aucune donnée sensible n'est présente dans le
+      dépôt (identifiants, mots de passe) : seul le contenu du site et le
+      pitch deck, déjà destiné à être diffusé aux investisseurs.
+- [ ] Activer GitHub Pages : Settings → Pages → Source : **Deploy from a
+      branch** → Branch : `main` / `(root)` → Save.
+- [ ] Chez IONOS, pointer le domaine vers GitHub Pages en DNS (voir 5.2).
+- [ ] Une fois le DNS propagé, cocher **Enforce HTTPS** dans Settings →
+      Pages (le certificat SSL est généré automatiquement par GitHub, sans
+      action côté IONOS).
 
-Ces valeurs sont chiffrées par GitHub, invisibles ensuite (même pour vous en
-relecture), et jamais transmises à Claude.
+### 5.2 DNS chez IONOS
 
-### 6.2 Suivre les déploiements
+Sur le compte IONOS qui possède le domaine, **Domaines & SSL** →
+`france-methanisation.com` → onglet **DNS** (ne pas repasser par
+« Connecter à un espace Web », qui pointe vers l'hébergement IONOS et non
+vers GitHub).
 
-Onglet **Actions** du dépôt GitHub : chaque push déclenche un run
-« Déploiement IONOS » que vous pouvez ouvrir pour voir le détail (succès/
-échec, fichiers transférés). En cas d'échec (souvent : mauvais identifiant,
-port bloqué, ou chemin distant incorrect), le log indique la cause.
+Ajouter/modifier ces enregistrements, **sans toucher aux enregistrements MX
+existants** (messagerie) :
 
-Vous pouvez aussi relancer un déploiement manuellement sans changer de code,
-depuis l'onglet Actions → « Déploiement IONOS » → **Run workflow**.
+| Type  | Nom / Hôte | Valeur                     |
+|-------|------------|----------------------------|
+| A     | @ (racine) | `185.199.108.153`          |
+| A     | @ (racine) | `185.199.109.153`          |
+| A     | @ (racine) | `185.199.110.153`          |
+| A     | @ (racine) | `185.199.111.153`          |
+| CNAME | www        | `terenceburcelin.github.io.` |
 
-### 6.3 Relier le nom de domaine à l'hébergement
-
-Toujours dans le panneau IONOS :
-
-- Si le domaine a été acheté chez IONOS : **Domaines & SSL** → sélectionner
-  `france-methanisation.com` → l'assigner au package d'hébergement
-  concerné (assistant en quelques clics).
-- Si le domaine est enregistré ailleurs : pointer ses serveurs de noms
-  (nameservers) vers IONOS, ou créer les enregistrements A / CNAME indiqués
-  par IONOS dans la fiche technique du package d'hébergement.
-
-Une fois le domaine relié, IONOS propose en général l'activation gratuite
-d'un certificat SSL (Let's Encrypt) pour passer le site en HTTPS — à activer
-dans **SSL** sur la fiche du domaine.
+Ce sont les quatre adresses IP officielles de GitHub Pages (toujours les
+mêmes, pour n'importe quel site GitHub Pages). Propagation généralement
+rapide (quelques minutes à 1h).
