@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — France Méthanisation</title>
+<meta name="description" content="Contactez France Méthanisation : élus, riverains, investisseurs ou partenaires, notre équipe vous répond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">FM</span>
+      <span class="brand-name">France Méthanisation</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="le-projet.html">Le projet</a></li>
+        <li><a href="investisseurs.html">Investisseurs</a></li>
+        <li><a href="equipe.html">L'équipe</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="investisseurs.html#pitch-deck" class="btn btn-ghost">Pitch deck</a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow" style="color:#e8c98a;">Contact</span>
+    <h1>Parlons de votre territoire ou de votre projet d'investissement</h1>
+    <p class="lede">Élu, service instructeur, riverain, investisseur ou futur partenaire de collecte : dites-nous en un peu plus, nous revenons vers vous rapidement.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="two-col" style="align-items:flex-start;">
+      <div class="form-card">
+        <form data-fm-form="contact">
+          <div class="field">
+            <label for="c-profil">Vous êtes</label>
+            <select id="c-profil" name="profil" required>
+              <option value="">Sélectionnez un profil</option>
+              <option value="Elu / collectivité">Élu(e) ou collectivité</option>
+              <option value="Service instructeur / Etat">Service instructeur / administration</option>
+              <option value="Riverain">Riverain</option>
+              <option value="Investisseur">Investisseur</option>
+              <option value="Partenaire collecte">Partenaire de collecte de biodéchets</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="c-nom">Nom complet</label>
+            <input type="text" id="c-nom" name="nom" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="c-email">E-mail</label>
+            <input type="email" id="c-email" name="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="c-message">Message</label>
+            <textarea id="c-message" name="message" rows="5" required placeholder="Votre territoire, votre question ou votre projet..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
+          <p class="form-note">Vos informations ne sont utilisées que pour vous répondre. Voir notre <a href="mentions-legales.html">politique de confidentialité</a>.</p>
+        </form>
+        <div class="form-success">
+          <div class="check">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Message envoyé, merci !</h3>
+          <p>Notre équipe vous répond dans les meilleurs délais.</p>
+        </div>
+      </div>
+
+      <div>
+        <h3>Autres façons de nous joindre</h3>
+        <ul class="list-check">
+          <li><span class="ico">@</span><span><a href="mailto:contact@france-methanisation.fr">contact@france-methanisation.fr</a></span></li>
+          <li><span class="ico">✓</span><span>Basés en France, nous nous déplaçons volontiers pour rencontrer élus et investisseurs.</span></li>
+        </ul>
+        <div class="card" style="margin-top:28px;">
+          <h3>Vous êtes investisseur ?</h3>
+          <p>Accédez directement à notre dossier d'investissement complet.</p>
+          <a href="investisseurs.html#pitch-deck" class="btn btn-ghost">Télécharger le pitch deck</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer"></footer>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/footer.js"></script>
+</body>
+</html>
