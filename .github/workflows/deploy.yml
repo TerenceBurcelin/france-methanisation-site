@@ -12,6 +12,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Retirer les fichiers internes (non destinés au site public)
+        run: rm -f SETUP.md
+
       - name: Déploiement SFTP vers IONOS
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -22,3 +25,4 @@ jobs:
           sftp_only: true
           local_path: './*'
           remote_path: ${{ secrets.IONOS_REMOTE_DIR }}
+          delete_remote_files: true

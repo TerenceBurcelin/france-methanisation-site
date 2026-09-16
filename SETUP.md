@@ -76,6 +76,11 @@ Le site source vit sur GitHub :
 publie automatiquement tout le contenu de ce dossier sur l'hébergement IONOS
 par SFTP à chaque `git push` sur la branche `main`.
 
+Le workflow retire ce fichier (`SETUP.md`) avant publication et resynchronise
+exactement le dossier distant `IONOS_REMOTE_DIR` sur le contenu du dépôt
+(`delete_remote_files: true`) : tout fichier supprimé du dépôt disparaît
+aussi du serveur au déploiement suivant.
+
 Concrètement : quand vous demandez une modification à Claude, il édite les
 fichiers, commit et pousse sur GitHub — le site en ligne se met à jour tout
 seul 30 secondes à 1 minute plus tard, sans que Claude ait jamais besoin de
