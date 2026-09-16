@@ -279,7 +279,7 @@ section.tight { padding: 48px 0; }
   height: 100svh;
   color: var(--ink);
   overflow: hidden;
-  background: var(--forest-dark);
+  background: var(--paper);
 }
 
 .hero-media {
