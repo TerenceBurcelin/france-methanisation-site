@@ -18,7 +18,35 @@ document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initYear();
   initForms();
+  initHeroParallax();
 });
+
+function initHeroParallax() {
+  const hero = document.querySelector(".hero");
+  const img = document.querySelector(".hero-media img");
+  if (!hero || !img) return;
+
+  const maxShift = 70; // px — reste dans la marge prévue par le CSS (image surdimensionnée)
+  let ticking = false;
+
+  function update() {
+    const heroHeight = hero.offsetHeight || 1;
+    const progress = Math.min(Math.max(-hero.getBoundingClientRect().top / heroHeight, 0), 1);
+    img.style.transform = `translate3d(0, ${progress * maxShift}px, 0)`;
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+}
 
 function initNav() {
   const toggle = document.querySelector(".nav-toggle");
