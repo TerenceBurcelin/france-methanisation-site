@@ -314,9 +314,9 @@ section.tight { padding: 48px 0; }
 
 .hero-inner {
   position: absolute;
-  top: var(--hero-split);
+  bottom: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 2;
   width: 100%;
   max-width: 980px;
@@ -401,18 +401,6 @@ section.tight { padding: 48px 0; }
   .grid-2 { grid-template-columns: 1fr; }
   .hero-content { padding: 24px 22px; }
   .hero-stats { gap: 10px; }
-}
-/* Le split image/carte du hero dépend de la hauteur d'écran disponible,
-   pas seulement de la largeur : sur un écran large mais bas (ordinateur
-   portable), la carte a besoin de plus de place sous l'image. */
-@media (max-height: 860px) {
-  .hero { --hero-split: 72%; }
-}
-@media (max-height: 720px) {
-  .hero { --hero-split: 62%; }
-}
-@media (max-height: 600px) {
-  .hero { --hero-split: 52%; }
 }
 @media (max-width: 620px) {
   .grid-3, .grid-4 { grid-template-columns: 1fr; }
