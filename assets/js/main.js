@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initYear();
   initForms();
   initHeroParallax();
+  initStickyHeader();
 });
 
 function initHeroParallax() {
@@ -26,7 +27,7 @@ function initHeroParallax() {
   const img = document.querySelector(".hero-media img");
   if (!hero || !img) return;
 
-  const maxShift = 70; // px — reste dans la marge prévue par le CSS (image surdimensionnée)
+  const maxShift = 140; // px — reste dans la marge prévue par le CSS (image surdimensionnée)
   let ticking = false;
 
   function update() {
@@ -45,6 +46,18 @@ function initHeroParallax() {
 
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
+  update();
+}
+
+function initStickyHeader() {
+  const header = document.querySelector(".site-header--overlay");
+  if (!header) return;
+
+  function update() {
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
+  }
+
+  window.addEventListener("scroll", update, { passive: true });
   update();
 }
 

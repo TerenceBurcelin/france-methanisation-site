@@ -156,11 +156,20 @@ section.tight { padding: 48px 0; }
 }
 
 .site-header--overlay {
-  position: relative;
-  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
   background: linear-gradient(180deg, rgba(18,39,30,0.5) 0%, rgba(18,39,30,0) 100%);
   border-bottom: none;
   backdrop-filter: none;
+  transition: background 0.25s ease, backdrop-filter 0.25s ease, box-shadow 0.25s ease;
+}
+.site-header--overlay.is-scrolled {
+  background: rgba(15,31,24,0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px -18px rgba(0,0,0,0.6);
 }
 .site-header--overlay .brand-name,
 .site-header--overlay .nav-links a { color: var(--white); }
@@ -292,10 +301,10 @@ section.tight { padding: 48px 0; }
 }
 .hero-media img {
   position: absolute;
-  top: -90px;
+  top: -160px;
   left: 0;
   width: 100%;
-  height: calc(100% + 180px);
+  height: calc(100% + 320px);
   object-fit: cover;
   will-change: transform;
 }
