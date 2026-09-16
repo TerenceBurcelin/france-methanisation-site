@@ -73,8 +73,14 @@
             <label for="c-message">Message</label>
             <textarea id="c-message" name="message" rows="5" required placeholder="Votre territoire, votre question ou votre projet..."></textarea>
           </div>
+          <div class="field field-checkbox">
+            <label>
+              <input type="checkbox" name="consentement" required>
+              <span>J'accepte que France Méthanisation utilise mes coordonnées pour me répondre, conformément à la <a href="mentions-legales.html#donnees-personnelles">politique de confidentialité</a>.</span>
+            </label>
+          </div>
           <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
-          <p class="form-note">Vos informations ne sont utilisées que pour vous répondre. Voir notre <a href="mentions-legales.html">politique de confidentialité</a>.</p>
+          <p class="form-note">Vos informations ne sont utilisées que pour vous répondre et ne sont jamais transmises à des tiers.</p>
         </form>
         <div class="form-success">
           <div class="check">
@@ -104,5 +110,6 @@
 <footer class="site-footer" id="footer"></footer>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/footer.js"></script>
+<script src="assets/js/cookies.js"></script>
 </body>
 </html>

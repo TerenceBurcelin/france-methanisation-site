@@ -210,8 +210,14 @@
             <label for="pd-email">E-mail professionnel</label>
             <input type="email" id="pd-email" name="email" required autocomplete="email">
           </div>
+          <div class="field field-checkbox">
+            <label>
+              <input type="checkbox" name="consentement" required>
+              <span>J'accepte que France Méthanisation utilise mes coordonnées pour m'envoyer le pitch deck et me recontacter au sujet du projet, conformément à la <a href="mentions-legales.html#donnees-personnelles">politique de confidentialité</a>.</span>
+            </label>
+          </div>
           <button type="submit" class="btn btn-primary btn-block">Recevoir le pitch deck</button>
-          <p class="form-note">Vos coordonnées sont utilisées uniquement pour vous transmettre nos documents et échanger sur le projet. Voir notre <a href="mentions-legales.html">politique de confidentialité</a>.</p>
+          <p class="form-note">Vos coordonnées ne sont jamais transmises à des tiers.</p>
         </form>
         <div class="form-success">
           <div class="check">
@@ -229,5 +235,6 @@
 <footer class="site-footer" id="footer"></footer>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/footer.js"></script>
+<script src="assets/js/cookies.js"></script>
 </body>
 </html>
