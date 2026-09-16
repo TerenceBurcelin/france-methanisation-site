@@ -161,7 +161,7 @@ section.tight { padding: 48px 0; }
   left: 0;
   right: 0;
   z-index: 50;
-  background: linear-gradient(180deg, rgba(15,31,24,0.92) 0%, rgba(15,31,24,0.75) 100%);
+  background: linear-gradient(180deg, rgba(18,39,30,0.5) 0%, rgba(18,39,30,0) 100%);
   border-bottom: none;
   backdrop-filter: none;
   transition: background 0.25s ease, backdrop-filter 0.25s ease, box-shadow 0.25s ease;
@@ -273,9 +273,7 @@ section.tight { padding: 48px 0; }
 /* ---------------- Hero ---------------- */
 
 .hero {
-  --hero-img-top: 10%;
-  --hero-img-height: 80%;
-  --hero-split: calc(var(--hero-img-top) + var(--hero-img-height));
+  --hero-split: 70%;
   position: relative;
   height: 100vh;
   height: 100svh;
@@ -286,13 +284,12 @@ section.tight { padding: 48px 0; }
 
 .hero-media {
   position: absolute;
-  top: var(--hero-img-top);
-  left: 10%;
-  right: 10%;
-  height: var(--hero-img-height);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--hero-split);
   z-index: 0;
   overflow: hidden;
-  border-radius: 24px;
 }
 .hero-media::after {
   content: "";
@@ -405,22 +402,9 @@ section.tight { padding: 48px 0; }
   .hero-content { padding: 24px 22px; }
   .hero-stats { gap: 10px; }
 }
-/* Le split image/carte du hero dépend de la hauteur d'écran disponible,
-   pas seulement de la largeur : sur un écran large mais bas (ordinateur
-   portable), la carte a besoin de plus de place sous l'image. */
-@media (max-height: 860px) {
-  .hero { --hero-img-height: 72%; }
-}
-@media (max-height: 720px) {
-  .hero { --hero-img-height: 62%; }
-}
-@media (max-height: 600px) {
-  .hero { --hero-img-top: 8%; --hero-img-height: 50%; }
-}
 @media (max-width: 620px) {
   .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  .hero { --hero-img-top: 7%; --hero-img-height: 52%; }
-  .hero-media { left: 6%; right: 6%; border-radius: 18px; }
+  .hero { --hero-split: 58%; }
   .hero h1 { font-size: 1.5rem; }
   .hero .lede { font-size: 0.85rem; }
   .hero-stats strong { font-size: 1rem; }
