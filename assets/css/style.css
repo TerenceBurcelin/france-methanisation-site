@@ -188,13 +188,9 @@ section.tight { padding: 48px 0; }
   height: 38px;
   border-radius: 10px;
   background: var(--forest);
-  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Fraunces", serif;
-  font-weight: 700;
-  font-size: 0.95rem;
   flex-shrink: 0;
 }
 
@@ -677,12 +673,15 @@ section.tight { padding: 48px 0; }
   color: var(--white);
   border-radius: 20px;
   padding: 48px 40px;
+  margin: 0 auto;
+  max-width: calc(var(--maxw) - 80px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
   flex-wrap: wrap;
 }
+@media (max-width: 620px) { .cta-banner { max-width: none; } }
 .cta-banner h2 { color: var(--white); margin-bottom: 6px; }
 .cta-banner p { color: rgba(255,255,255,0.75); margin: 0; max-width: 46ch; }
 
