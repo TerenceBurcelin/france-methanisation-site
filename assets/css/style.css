@@ -273,18 +273,21 @@ section.tight { padding: 48px 0; }
 /* ---------------- Hero ---------------- */
 
 .hero {
+  --hero-split: 70%;
   position: relative;
-  min-height: 85vh;
-  min-height: 85svh;
-  display: flex;
-  flex-direction: column;
+  height: 100vh;
+  height: 100svh;
   color: var(--ink);
   overflow: hidden;
+  background: var(--forest-dark);
 }
 
 .hero-media {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--hero-split);
   z-index: 0;
   overflow: hidden;
 }
@@ -296,8 +299,8 @@ section.tight { padding: 48px 0; }
   background: linear-gradient(180deg,
     rgba(18,39,30,0.32) 0%,
     rgba(18,39,30,0.05) 18%,
-    rgba(18,39,30,0) 55%,
-    rgba(18,39,30,0.12) 100%);
+    rgba(18,39,30,0) 70%,
+    rgba(18,39,30,0.25) 100%);
 }
 .hero-media img {
   position: absolute;
@@ -310,32 +313,44 @@ section.tight { padding: 48px 0; }
 }
 
 .hero-inner {
-  position: relative;
-  z-index: 1;
-  flex: 1 1 auto;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 56px;
+  position: absolute;
+  top: var(--hero-split);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   width: 100%;
+  max-width: 980px;
 }
 
 .hero-content {
-  max-width: 640px;
   background: var(--white);
-  border-radius: 20px;
-  padding: 40px 44px;
-  box-shadow: 0 30px 60px -25px rgba(0,0,0,0.45);
+  border-radius: 22px;
+  padding: clamp(18px, 4vh, 34px) clamp(20px, 5vw, 52px);
+  box-shadow: 0 30px 60px -25px rgba(0,0,0,0.5);
+  text-align: center;
 }
 
-.hero h1 { color: var(--forest-dark); }
+.hero h1 {
+  color: var(--forest-dark);
+  font-size: clamp(1.5rem, 2.2vw + 1vh, 2.5rem);
+  margin-bottom: 0.4em;
+}
 
-.hero .lede { color: var(--ink-soft); }
+.hero .lede {
+  color: var(--ink-soft);
+  margin: 0 auto;
+  max-width: 62ch;
+  font-size: clamp(0.9rem, 1vh + 0.6vw, 1.15rem);
+}
+
+.hero .eyebrow { display: block; margin-bottom: 0.6em; }
 
 .hero-actions {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-top: 28px;
+  justify-content: center;
+  margin-top: clamp(12px, 2.2vh, 22px);
 }
 
 .hero .btn-outline {
@@ -346,20 +361,26 @@ section.tight { padding: 48px 0; }
 
 .hero-stats {
   display: flex;
-  gap: 28px;
-  margin-top: 32px;
-  padding-top: 28px;
+  gap: 16px;
+  margin-top: clamp(12px, 2.4vh, 24px);
+  padding-top: clamp(10px, 2.2vh, 22px);
   border-top: 1px solid var(--line);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
-.hero-stats div { min-width: 110px; }
+.hero-stats div { flex: 1 1 0; min-width: 0; }
 .hero-stats strong {
   display: block;
   font-family: "Fraunces", serif;
-  font-size: 1.6rem;
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
   color: var(--forest);
+  white-space: nowrap;
 }
-.hero-stats span { font-size: 0.8rem; color: var(--ink-soft); }
+.hero-stats span {
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+  display: block;
+}
 
 .page-hero {
   background: linear-gradient(120deg, var(--forest-dark), var(--forest));
@@ -378,12 +399,15 @@ section.tight { padding: 48px 0; }
 @media (max-width: 900px) {
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-2 { grid-template-columns: 1fr; }
-  .hero-inner { padding-bottom: 32px; }
-  .hero-content { padding: 28px 26px; }
-  .hero-stats { gap: 18px 24px; }
+  .hero-content { padding: 24px 22px; }
+  .hero-stats { gap: 10px; }
 }
 @media (max-width: 620px) {
   .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .hero { --hero-split: 58%; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero .lede { font-size: 0.85rem; }
+  .hero-stats strong { font-size: 1rem; }
 }
 
 .card {
@@ -436,6 +460,12 @@ section.tight { padding: 48px 0; }
 }
 .section-dark h2, .section-dark h3 { color: var(--white); }
 .section-dark .lede, .section-dark p { color: rgba(255,255,255,0.75); }
+
+.section-dark--photo {
+  background-image: linear-gradient(rgba(15,31,24,0.86), rgba(15,31,24,0.9)), url('../img/unite-rendu-3d.png');
+  background-size: cover;
+  background-position: center;
+}
 
 /* Les cartes claires (formulaires) restent lisibles même dans une section sombre */
 .section-dark .form-card,
