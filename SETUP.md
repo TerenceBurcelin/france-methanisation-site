@@ -68,69 +68,47 @@ Le site est 100% statique : il peut être déployé tel quel sur Netlify,
 Vercel, OVH, o2switch, GitHub Pages, etc. Il suffit d'y transférer tout le
 contenu de ce dossier.
 
-## 6. Déploiement vers IONOS (hébergement retenu)
+## 6. Déploiement vers IONOS via GitHub (mis en place)
 
-Le domaine `france-methanisation.com` et l'hébergement web sont chez IONOS.
-La publication se fait par SFTP grâce au script `deploy.py` de ce dossier —
-Claude peut le relancer à chaque modification pour republier le site.
+Le site source vit sur GitHub :
+[TerenceBurcelin/france-methanisation-site](https://github.com/TerenceBurcelin/france-methanisation-site)
+(dépôt privé). Un workflow GitHub Actions (`.github/workflows/deploy.yml`)
+publie automatiquement tout le contenu de ce dossier sur l'hébergement IONOS
+par SFTP à chaque `git push` sur la branche `main`.
 
-### 6.1 Récupérer les accès SFTP (une seule fois)
+Concrètement : quand vous demandez une modification à Claude, il édite les
+fichiers, commit et pousse sur GitHub — le site en ligne se met à jour tout
+seul 30 secondes à 1 minute plus tard, sans que Claude ait jamais besoin de
+vos identifiants IONOS.
 
-Dans le panneau IONOS (Kundencenter / espace client) :
+### 6.1 Secrets à configurer une seule fois dans GitHub
 
-1. Aller dans **Hébergement** → votre package → **FTP & SFTP** (ou
-   « Accès FTP »).
-2. Activer/relever l'**accès SFTP** (à privilégier, plus sécurisé que le FTP
-   classique) : noter l'**hôte** (ex. `access-xxxxxxxx.webspace-host.com`),
-   le **port** (22 par défaut), le **nom d'utilisateur**, et définir/relever
-   le **mot de passe**.
-3. Repérer le **dossier racine du site** : si le package n'héberge que
-   `france-methanisation.com`, c'est en général `/`. S'il héberge plusieurs
-   domaines, IONOS crée un sous-dossier par domaine (ex.
-   `/france-methanisation.com/`) — c'est ce chemin qu'il faut utiliser.
+Dans le dépôt : **Settings → Secrets and variables → Actions → New
+repository secret**. Récupérez les valeurs dans le panneau IONOS
+(Hébergement → votre package → FTP & SFTP → Accès SFTP) :
 
-### 6.2 Enregistrer ces accès en local (jamais dans OneDrive, jamais partagés avec Claude)
+| Nom du secret        | Valeur                                            |
+|-----------------------|---------------------------------------------------|
+| `IONOS_SFTP_HOST`     | ex. `access-xxxxxxxx.webspace-host.com`           |
+| `IONOS_SFTP_USER`     | votre utilisateur SFTP IONOS                       |
+| `IONOS_SFTP_PASS`     | votre mot de passe SFTP IONOS                      |
+| `IONOS_SFTP_PORT`     | en général `22`                                    |
+| `IONOS_REMOTE_DIR`    | dossier racine du site (souvent `/`)               |
 
-Un fichier modèle a été créé à l'emplacement `~/.france-metha-deploy.env`
-(dans votre dossier utilisateur macOS, **hors OneDrive**, lisible par vous
-seul). Ouvrez-le et remplacez les valeurs `REMPLACEZ_MOI` :
+Ces valeurs sont chiffrées par GitHub, invisibles ensuite (même pour vous en
+relecture), et jamais transmises à Claude.
 
-```bash
-open -e ~/.france-metha-deploy.env
-```
+### 6.2 Suivre les déploiements
 
-```
-IONOS_SFTP_HOST=access-xxxxxxxx.webspace-host.com
-IONOS_SFTP_PORT=22
-IONOS_SFTP_USER=votre_utilisateur_sftp
-IONOS_SFTP_PASS=votre_mot_de_passe
-IONOS_REMOTE_DIR=/
-```
+Onglet **Actions** du dépôt GitHub : chaque push déclenche un run
+« Déploiement IONOS » que vous pouvez ouvrir pour voir le détail (succès/
+échec, fichiers transférés). En cas d'échec (souvent : mauvais identifiant,
+port bloqué, ou chemin distant incorrect), le log indique la cause.
 
-Enregistrez. Ce fichier ne doit jamais être copié dans le dossier du site,
-ni envoyé à qui que ce soit.
+Vous pouvez aussi relancer un déploiement manuellement sans changer de code,
+depuis l'onglet Actions → « Déploiement IONOS » → **Run workflow**.
 
-### 6.3 Publier le site
-
-Depuis ce dossier :
-
-```bash
-/usr/bin/python3 deploy.py
-```
-
-Le script envoie tous les fichiers nouveaux ou modifiés vers IONOS. Options
-utiles :
-
-- `--dry-run` : simule le déploiement sans rien transférer (pour vérifier).
-- `--delete` : supprime aussi sur le serveur les fichiers qui n'existent
-  plus en local (à utiliser une fois que vous êtes à l'aise avec le
-  fonctionnement — cela ne touche jamais `.well-known/` ni `cgi-bin/`).
-
-**À chaque nouvelle modification demandée depuis Claude, il suffit de
-redemander la publication** : Claude relance `deploy.py` et le site en ligne
-est mis à jour en quelques secondes.
-
-### 6.4 Relier le nom de domaine à l'hébergement
+### 6.3 Relier le nom de domaine à l'hébergement
 
 Toujours dans le panneau IONOS :
 
