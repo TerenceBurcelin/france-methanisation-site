@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
 </head>
 <body>
 
@@ -177,7 +178,7 @@
         <h2>Une unité compacte, pensée pour les biodéchets</h2>
         <p>Contrairement aux méthaniseurs agricoles, notre technologie est spécifiquement conçue pour digérer les biodéchets alimentaires (restauration, ménages), avec un système d'agitation dédié et un hygiéniseur intégré.</p>
         <ul class="list-check">
-          <li><span class="ico">✓</span><span><strong>Digesteur enterré</strong> — meilleure intégration paysagère et acceptation locale.</span></li>
+          <li><span class="ico">✓</span><span><strong>Digesteur modulaire</strong> — meilleure intégration paysagère et acceptation locale.</span></li>
           <li><span class="ico">✓</span><span><strong>Hygiéniseur intégré</strong> — traitement conforme aux normes sanitaires applicables aux biodéchets.</span></li>
           <li><span class="ico">✓</span><span><strong>Modules préfabriqués</strong> — fabrication en atelier, montage rapide sur site, moins d'aléas de chantier.</span></li>
           <li><span class="ico">✓</span><span><strong>Injection directe</strong> — le biométhane est injecté dans le réseau GRDF, sans transport routier du gaz.</span></li>
@@ -216,7 +217,7 @@
       </div>
       <div class="card">
         <h3>Intégration paysagère</h3>
-        <p>Hauteur limitée, bardage bois, digesteur enterré : l'unité s'intègre visuellement à son environnement agricole ou périurbain.</p>
+        <p>Hauteur limitée, bardage bois, digesteur modulaire : l'unité s'intègre visuellement à son environnement agricole ou périurbain.</p>
       </div>
     </div>
   </div>
@@ -247,17 +248,10 @@
     <div class="section-head">
       <span class="eyebrow">Nos unités</span>
       <h2>Une approche qui se déploie unité après unité</h2>
-      <p class="lede">France Méthanisation conçoit, installe et exploite ses propres unités. Saint-Priest, dans l'agglomération lyonnaise, est la première — elle ne sera pas la dernière.</p>
+      <p class="lede">France Méthanisation conçoit, installe et exploite ses propres unités. Saint-Priest, dans l'agglomération lyonnaise, est la première — elle ne sera pas la dernière. Cliquez sur un repère pour découvrir l'unité.</p>
     </div>
-    <a class="unit-card" href="/unites/saint-priest-5000">
-      <img src="/assets/img/unite-rendu-3d-small.jpg" alt="Vue 3D de l'unité St Priest 5000" loading="lazy" width="800" height="511">
-      <div class="unit-card-body">
-        <span class="tag">Première unité</span>
-        <h3>Unité St Priest 5000</h3>
-        <p>15 rue du Dauphiné, Saint-Priest — 5 000 t/an de biodéchets, 30 Nm³/h de biométhane injecté sur le réseau GRDF, au sein d'une zone d'activités déjà occupée par des entreprises.</p>
-        <span class="step-link">Découvrir l'unité <span aria-hidden="true">→</span></span>
-      </div>
-    </a>
+    <div id="france-map" class="france-map" role="region" aria-label="Carte de France des unités France Méthanisation"></div>
+    <noscript><p class="source-note">Unité St Priest 5000 — 15 rue du Dauphiné, Saint-Priest. <a href="/unites/saint-priest-5000">Voir la page de l'unité</a>.</p></noscript>
   </div>
 </section>
 
@@ -310,5 +304,7 @@
 <script src="/assets/js/main.js"></script>
 <script src="/assets/js/footer.js"></script>
 <script src="/assets/js/cookies.js"></script>
+<script src="/assets/vendor/leaflet/leaflet.js"></script>
+<script src="/assets/js/units-map.js"></script>
 </body>
 </html>
