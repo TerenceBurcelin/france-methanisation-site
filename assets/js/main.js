@@ -61,7 +61,38 @@ function initStickyHeader() {
   update();
 }
 
+function initDropdowns() {
+  const items = document.querySelectorAll(".has-dropdown");
+  if (!items.length) return;
+  const hoverDesktop = window.matchMedia("(min-width: 861px) and (hover: hover)");
+
+  function setOpen(item, open) {
+    item.classList.toggle("open", open);
+    const btn = item.querySelector(".nav-dropdown-toggle");
+    if (btn) btn.setAttribute("aria-expanded", String(open));
+  }
+
+  items.forEach((item) => {
+    const btn = item.querySelector(".nav-dropdown-toggle");
+    if (!btn) return;
+    btn.addEventListener("click", (e) => {
+      if (hoverDesktop.matches && e.detail !== 0) return; // au survol à la souris, le CSS suffit
+      setOpen(item, !item.classList.contains("open"));
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    items.forEach((item) => {
+      if (!item.contains(e.target)) setOpen(item, false);
+    });
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") items.forEach((item) => setOpen(item, false));
+  });
+}
+
 function initNav() {
+  initDropdowns();
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
   if (!toggle || !links) return;

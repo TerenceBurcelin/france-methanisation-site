@@ -36,7 +36,7 @@
     el.innerHTML =
       '<div class="cookie-banner-text">' +
       "<strong>Respect de votre vie privée.</strong> Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie de mesure d'audience ou publicitaire n'est déposé sans votre accord. " +
-      '<a href="mentions-legales.html#cookies">En savoir plus</a>' +
+      '<a href="/mentions-legales#cookies">En savoir plus</a>' +
       "</div>" +
       '<div class="cookie-banner-actions">' +
       '<button type="button" class="btn btn-ghost" data-cookie-choice="essential">Cookies essentiels uniquement</button>' +

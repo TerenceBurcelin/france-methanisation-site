@@ -5,30 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>L'équipe — France Méthanisation</title>
 <meta name="description" content="L'équipe fondatrice de France Méthanisation réunit une expertise complémentaire en collecte de biodéchets, exploitation d'unités et financement de projets.">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="shortcut icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav">
-    <a href="index.html" class="brand">
+    <a href="/" class="brand">
       <span class="brand-mark"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c-4 5.5-6 8.8-6 11a6 6 0 0 0 12 0c0-2.2-2-5.5-6-11z" fill="var(--amber)"/></svg></span>
       <span class="brand-name">France Méthanisation</span>
     </a>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="le-projet.html">Le projet</a></li>
-        <li><a href="investisseurs.html">Investisseurs</a></li>
-        <li><a href="equipe.html" class="active">L'équipe</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/notre-approche">Notre approche</a></li>
+        <li class="has-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Nos unités<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="dropdown">
+            <div class="dropdown-panel">
+              <div class="dropdown-list">
+                <span class="dropdown-eyebrow">Nos unités</span>
+                <a class="dropdown-item" href="/unites/saint-priest-5000">
+                  <strong>Unité St Priest 5000</strong>
+                  <span>Saint-Priest (69) · 5 000 t/an · à l'étude</span>
+                </a>
+                <p class="dropdown-note">D'autres unités viendront compléter le réseau.</p>
+              </div>
+              <a class="dropdown-media" href="/unites/saint-priest-5000" tabindex="-1" aria-hidden="true">
+                <img src="/assets/img/unite-rendu-3d-small.jpg" alt="" loading="lazy" width="800" height="511">
+              </a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/investisseurs">Investisseurs</a></li>
+        <li><a href="/equipe" class="active">L'équipe</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <a href="investisseurs.html#pitch-deck" class="btn btn-ghost">Pitch deck</a>
+      <a href="/investisseurs#pitch-deck" class="btn btn-ghost">Pitch deck</a>
       <button class="nav-toggle" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
       </button>
@@ -48,7 +69,7 @@
   <div class="container">
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-photo"><img src="assets/img/team-pierrick.png" alt="Pierrick Bonnet"></div>
+        <div class="team-photo"><img src="/assets/img/team-pierrick.png" alt="Pierrick Bonnet"></div>
         <div class="team-body">
           <h3>Pierrick Bonnet</h3>
           <p class="team-role">Dirige la société &amp; négocie les territoires</p>
@@ -61,7 +82,7 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo"><img src="assets/img/team-pacome.png" alt="Pacôme Becerro"></div>
+        <div class="team-photo"><img src="/assets/img/team-pacome.png" alt="Pacôme Becerro"></div>
         <div class="team-body">
           <h3>Pacôme Becerro</h3>
           <p class="team-role">Sécurise les contrats d'approvisionnement</p>
@@ -74,7 +95,7 @@
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo"><img src="assets/img/team-terence.png" alt="Terence Burcelin"></div>
+        <div class="team-photo"><img src="/assets/img/team-terence.png" alt="Terence Burcelin"></div>
         <div class="team-body">
           <h3>Terence Burcelin</h3>
           <p class="team-role">Installe les unités &amp; finance la société</p>
@@ -116,13 +137,13 @@
       <h2>Envie d'échanger avec l'équipe ?</h2>
       <p>Que vous soyez investisseur, collectivité ou futur partenaire de collecte, nous serions ravis d'échanger avec vous.</p>
     </div>
-    <a href="contact.html" class="btn btn-primary">Nous contacter</a>
+    <a href="/contact" class="btn btn-primary">Nous contacter</a>
   </div>
 </section>
 
 <footer class="site-footer" id="footer"></footer>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/footer.js"></script>
-<script src="assets/js/cookies.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/footer.js"></script>
+<script src="/assets/js/cookies.js"></script>
 </body>
 </html>

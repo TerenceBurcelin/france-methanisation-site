@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="brand" style="margin-bottom:14px;">
+          <a href="/" class="brand" style="margin-bottom:14px;">
             <span class="brand-mark"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c-4 5.5-6 8.8-6 11a6 6 0 0 0 12 0c0-2.2-2-5.5-6-11z" fill="var(--amber)"/></svg></span>
             <span class="brand-name" style="color:#fff;">France Méthanisation</span>
           </a>
@@ -15,18 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
         <div>
           <h4>Le site</h4>
           <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="le-projet.html">Le projet</a></li>
-            <li><a href="investisseurs.html">Investisseurs</a></li>
-            <li><a href="equipe.html">L'équipe</a></li>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/notre-approche">Notre approche</a></li>
+            <li><a href="/unites/saint-priest-5000">Unité St Priest 5000</a></li>
+            <li><a href="/investisseurs">Investisseurs</a></li>
+            <li><a href="/equipe">L'équipe</a></li>
           </ul>
         </div>
         <div>
           <h4>Ressources</h4>
           <ul>
-            <li><a href="investisseurs.html#pitch-deck">Pitch deck</a></li>
-            <li><a href="le-projet.html#faq">Questions fréquentes</a></li>
-            <li><a href="contact.html">Nous contacter</a></li>
+            <li><a href="/investisseurs#pitch-deck">Pitch deck</a></li>
+            <li><a href="/notre-approche#faq">Questions fréquentes</a></li>
+            <li><a href="/contact">Nous contacter</a></li>
           </ul>
         </div>
         <div>
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       <div class="footer-bottom">
         <span>&copy; <span data-year></span> France Méthanisation</span>
-        <span><a href="mentions-legales.html" style="color:rgba(255,255,255,0.7);">Mentions légales &amp; confidentialité</a></span>
+        <span><a href="/mentions-legales" style="color:rgba(255,255,255,0.7);">Mentions légales &amp; confidentialité</a></span>
       </div>
     </div>
   `;

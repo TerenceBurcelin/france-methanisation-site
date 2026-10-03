@@ -3,32 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Le Projet — France Méthanisation</title>
+<title>Notre approche — France Méthanisation</title>
 <meta name="description" content="Découvrez la technologie, la sécurité et l'intégration locale des unités de méthanisation France Méthanisation : petite échelle, zéro nuisance, conformité ICPE.">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="shortcut icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav">
-    <a href="index.html" class="brand">
+    <a href="/" class="brand">
       <span class="brand-mark"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c-4 5.5-6 8.8-6 11a6 6 0 0 0 12 0c0-2.2-2-5.5-6-11z" fill="var(--amber)"/></svg></span>
       <span class="brand-name">France Méthanisation</span>
     </a>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="le-projet.html" class="active">Le projet</a></li>
-        <li><a href="investisseurs.html">Investisseurs</a></li>
-        <li><a href="equipe.html">L'équipe</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/notre-approche" class="active">Notre approche</a></li>
+        <li class="has-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Nos unités<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="dropdown">
+            <div class="dropdown-panel">
+              <div class="dropdown-list">
+                <span class="dropdown-eyebrow">Nos unités</span>
+                <a class="dropdown-item" href="/unites/saint-priest-5000">
+                  <strong>Unité St Priest 5000</strong>
+                  <span>Saint-Priest (69) · 5 000 t/an · à l'étude</span>
+                </a>
+                <p class="dropdown-note">D'autres unités viendront compléter le réseau.</p>
+              </div>
+              <a class="dropdown-media" href="/unites/saint-priest-5000" tabindex="-1" aria-hidden="true">
+                <img src="/assets/img/unite-rendu-3d-small.jpg" alt="" loading="lazy" width="800" height="511">
+              </a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/investisseurs">Investisseurs</a></li>
+        <li><a href="/equipe">L'équipe</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <a href="investisseurs.html#pitch-deck" class="btn btn-ghost">Pitch deck</a>
+      <a href="/investisseurs#pitch-deck" class="btn btn-ghost">Pitch deck</a>
       <button class="nav-toggle" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
       </button>
@@ -39,7 +60,7 @@
 <section class="page-hero">
   <div class="container">
     <span class="eyebrow" style="color:#e8c98a;">Pour les élus, services instructeurs et riverains</span>
-    <h1>Une unité de méthanisation à taille humaine</h1>
+    <h1>Concevoir, installer et exploiter des unités de méthanisation à taille humaine</h1>
     <p class="lede">Nous avons fait un choix structurant : plutôt qu'une grande unité industrielle, déployer de nombreuses petites unités, chacune dimensionnée pour son territoire. C'est ce choix qui supprime l'essentiel des risques et nuisances habituellement associés à la méthanisation.</p>
   </div>
 </section>
@@ -50,7 +71,7 @@
     <a href="#technologie">La technologie</a>
     <a href="#securite">Sécurité &amp; nuisances</a>
     <a href="#reglementation">Réglementation</a>
-    <a href="#lyon">Site pilote de Saint-Priest</a>
+    <a href="#unites">Nos unités</a>
     <a href="#faq">Questions fréquentes</a>
   </div>
 </nav>
@@ -93,7 +114,7 @@
   <div class="container">
     <div class="two-col">
       <figure>
-        <img src="assets/img/unite-rendu-3d.png" alt="Vue 3D d'une future unité de méthanisation France Méthanisation, site de Saint-Priest" style="border-radius:var(--radius);box-shadow:var(--shadow);">
+        <img src="/assets/img/unite-rendu-3d.png" alt="Vue 3D d'une future unité de méthanisation France Méthanisation, site de Saint-Priest" style="border-radius:var(--radius);box-shadow:var(--shadow);">
         <figcaption class="figure-note">Vue 3D d'une unité France Méthanisation — environ 2 000 m² d'emprise au sol.</figcaption>
       </figure>
       <div>
@@ -121,7 +142,7 @@
     <div class="grid-3">
       <div class="card">
         <h3>Odeurs</h3>
-        <p>Le digesteur est enterré et étanche. Les phases de réception des biodéchets se font en espace confiné avec traitement de l'air, comme dans un commerce alimentaire.</p>
+        <p>Pulpe organique issue d'unités de déconditionnement, livrée en citerne branchée aux cuves : aucun biodéchet à l'air libre, donc aucune odeur.</p>
       </div>
       <div class="card">
         <h3>Bruit</h3>
@@ -129,7 +150,7 @@
       </div>
       <div class="card">
         <h3>Trafic routier</h3>
-        <p>Une unité de 5 000 t/an génère quelques rotations de camions par semaine, un trafic comparable à celui d'un commerce de proximité.</p>
+        <p>Une unité de 5 000 t/an nécessite uniquement 3 rotations de camions par semaine, un trafic comparable à celui d'un commerce de proximité.</p>
       </div>
       <div class="card">
         <h3>Risque incendie / explosion</h3>
@@ -155,7 +176,7 @@
         <h2>Un dossier construit avec les services de l'État</h2>
         <p>Compte tenu de leur taille, nos unités relèvent en général d'un régime ICPE allégé (déclaration ou enregistrement) plutôt que de l'autorisation environnementale complète requise pour les grandes unités industrielles — sans jamais s'affranchir des exigences de sécurité et de suivi environnemental.</p>
         <p>Chaque projet fait l'objet d'un dossier réglementaire complet, réalisé avec des bureaux d'études spécialisés, et d'un dialogue engagé en amont avec les mairies, les intercommunalités et les services instructeurs (DDT, DREAL/DDPP).</p>
-        <a href="contact.html" class="btn btn-ghost">Échanger avec notre équipe</a>
+        <a href="/contact" class="btn btn-ghost">Échanger avec notre équipe</a>
       </div>
       <div class="grid-2" style="gap:20px;">
         <div class="stat-tile"><strong>ICPE</strong><span>Rubrique 2781 — méthanisation</span></div>
@@ -167,30 +188,22 @@
   </div>
 </section>
 
-<section id="lyon">
+<section id="unites">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Premier projet concret</span>
-      <h2>Notre site pilote de Saint-Priest, dans l'agglomération lyonnaise</h2>
-      <p class="lede">Notre première unité est actuellement à l'étude au 15 rue du Dauphiné à Saint-Priest, au sein d'une zone d'activités déjà occupée par des entreprises — loin des habitations. Elle sera dimensionnée pour traiter 5 000 t/an de biodéchets, soit environ 30 Nm³/h de biométhane injecté sur le réseau GRDF.</p>
+      <span class="eyebrow">Nos unités</span>
+      <h2>Une approche qui se déploie unité après unité</h2>
+      <p class="lede">France Méthanisation conçoit, installe et exploite ses propres unités. Saint-Priest, dans l'agglomération lyonnaise, est la première — elle ne sera pas la dernière.</p>
     </div>
-    <div class="two-col">
-      <div class="map-embed">
-        <iframe
-          title="Localisation du site pilote de Saint-Priest"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=4.9430%2C45.6890%2C4.9620%2C45.7000&layer=mapnik&marker=45.6945%2C4.9525"
-          loading="lazy"></iframe>
+    <a class="unit-card" href="/unites/saint-priest-5000">
+      <img src="/assets/img/unite-rendu-3d-small.jpg" alt="Vue 3D de l'unité St Priest 5000" loading="lazy" width="800" height="511">
+      <div class="unit-card-body">
+        <span class="tag">Première unité</span>
+        <h3>Unité St Priest 5000</h3>
+        <p>15 rue du Dauphiné, Saint-Priest — 5 000 t/an de biodéchets, environ 30 Nm³/h de biométhane injecté sur le réseau GRDF, au sein d'une zone d'activités déjà occupée par des entreprises.</p>
+        <span class="step-link">Découvrir l'unité <span aria-hidden="true">→</span></span>
       </div>
-      <div>
-        <div class="badge-row" style="margin-top:0;">
-          <span class="badge">Zone d'activités économiques</span>
-          <span class="badge">Critères ICPE respectés</span>
-          <span class="badge">5 000 t/an</span>
-          <span class="badge">30 Nm³/h de CH₄</span>
-        </div>
-        <p style="margin-top:18px;">Ce site vitrine a vocation à démontrer, en conditions réelles, que le modèle France Méthanisation tient ses promesses : coûts maîtrisés, absence de nuisance, dialogue continu avec les parties prenantes locales.</p>
-      </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -207,7 +220,7 @@
       </details>
       <details class="faq-item">
         <summary>Est-ce que cela va sentir mauvais ?</summary>
-        <p>Nos unités enterrent le digesteur et confinent les phases de réception des biodéchets avec traitement de l'air. La matière première (biodéchets alimentaires collectés régulièrement) est comparable à ce que traite déjà un commerce de restauration.</p>
+        <p>Pulpe organique issue d'unités de déconditionnement, livrée en citerne branchée aux cuves : aucun biodéchet à l'air libre, donc aucune odeur.</p>
       </details>
       <details class="faq-item">
         <summary>Combien de camions vont circuler chaque jour ?</summary>
@@ -235,13 +248,13 @@
       <h2>Un projet dans votre commune ou votre territoire ?</h2>
       <p>Élus, services instructeurs, riverains : nous répondons à toutes vos questions et pouvons vous transmettre notre dossier de présentation détaillé.</p>
     </div>
-    <a href="contact.html" class="btn btn-primary">Nous contacter</a>
+    <a href="/contact" class="btn btn-primary">Nous contacter</a>
   </div>
 </section>
 
 <footer class="site-footer" id="footer"></footer>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/footer.js"></script>
-<script src="assets/js/cookies.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/footer.js"></script>
+<script src="/assets/js/cookies.js"></script>
 </body>
 </html>

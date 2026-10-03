@@ -911,3 +911,181 @@ section.tight { padding: 48px 0; }
   .cookie-banner-actions { width: 100%; }
   .cookie-banner-actions .btn { flex: 1 1 auto; }
 }
+
+/* ---------------- Menu déroulant « Nos unités » ---------------- */
+
+.nav { position: relative; }
+.has-dropdown { position: static; }
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.nav-dropdown-toggle svg { width: 12px; height: 12px; transition: transform 0.2s ease; }
+.has-dropdown.active > .nav-dropdown-toggle,
+.has-dropdown:hover > .nav-dropdown-toggle,
+.has-dropdown.open > .nav-dropdown-toggle { color: var(--forest); }
+.has-dropdown.open > .nav-dropdown-toggle svg,
+.has-dropdown:hover > .nav-dropdown-toggle svg { transform: rotate(180deg); }
+
+.site-header--overlay .nav-dropdown-toggle { color: var(--white); }
+.site-header--overlay .has-dropdown.active > .nav-dropdown-toggle,
+.site-header--overlay .has-dropdown:hover > .nav-dropdown-toggle,
+.site-header--overlay .has-dropdown.open > .nav-dropdown-toggle { color: var(--amber); }
+
+.dropdown-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.45);
+}
+.dropdown-list {
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.dropdown-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--amber-dark);
+}
+.site-header .nav-links .dropdown-item {
+  display: block;
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid var(--amber);
+  text-decoration: none;
+  color: var(--ink);
+}
+.dropdown-item strong {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-size: 1.12rem;
+  color: var(--forest-dark);
+  transition: color 0.15s ease;
+}
+.dropdown-item span {
+  display: block;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.site-header .nav-links .dropdown-item:hover strong { color: var(--amber-dark); }
+.dropdown-note { margin: 6px 0 0; font-size: 0.82rem; color: var(--ink-soft); }
+.dropdown-media { display: block; min-height: 240px; }
+.dropdown-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (min-width: 861px) {
+  .has-dropdown { padding: 24px 0 32px; margin: -24px 0 -32px; }
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: min(860px, calc(100% - 48px));
+    padding-top: 10px;
+    transform: translate(-50%, 8px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+    z-index: 5;
+  }
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown,
+  .has-dropdown.open .dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 860px) {
+  .nav-dropdown-toggle { width: 100%; justify-content: space-between; }
+  .dropdown { display: none; }
+  .has-dropdown.open .dropdown { display: block; }
+  .dropdown-panel {
+    grid-template-columns: 1fr;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .dropdown-list { padding: 10px 0 2px; gap: 8px; }
+  .dropdown-media, .dropdown-eyebrow, .dropdown-note { display: none; }
+  .site-header--overlay .nav-links .dropdown-item { color: var(--white); }
+  .site-header--overlay .dropdown-item strong { color: var(--white); }
+  .site-header--overlay .dropdown-item span { color: rgba(255,255,255,0.7); }
+}
+
+/* ---------------- Liens « En savoir plus » & cartes d'unité ---------------- */
+
+.step { display: flex; flex-direction: column; }
+.step-link {
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--forest);
+  text-decoration: none;
+  display: inline-block;
+}
+.step-link span { display: inline-block; transition: transform 0.15s ease; }
+.step-link:hover { color: var(--amber-dark); }
+.step-link:hover span, .unit-card:hover .step-link span { transform: translateX(4px); }
+
+.unit-card {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+.unit-card:hover { transform: translateY(-3px); }
+.unit-card img { width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
+.unit-card-body { padding: 34px 36px; display: flex; flex-direction: column; justify-content: center; }
+.unit-card-body h3 { font-size: 1.5rem; margin-bottom: 0.4em; }
+.unit-card-body p { color: var(--ink-soft); }
+.unit-card-body .step-link { margin-top: 6px; padding-top: 0; }
+@media (max-width: 760px) {
+  .unit-card { grid-template-columns: 1fr; }
+  .unit-card img { min-height: 200px; max-height: 260px; }
+  .unit-card-body { padding: 26px 24px; }
+}
+
+/* ---------------- Carte de l'unité ---------------- */
+
+.unit-map {
+  position: relative;
+  isolation: isolate;
+  height: 440px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: var(--paper-deep);
+}
+.fm-pin { background: none; border: 0; }
+.fm-pin svg { width: 40px; height: 52px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.35)); }
+.leaflet-popup-content { font-family: "Inter", sans-serif; font-size: 0.92rem; line-height: 1.45; margin: 14px 18px; }
+.leaflet-popup-content strong { font-family: "Fraunces", serif; font-size: 1.05rem; color: var(--forest-dark); }

@@ -6,13 +6,16 @@ la mise en ligne publique.
 
 ## 1. Prévisualiser le site en local
 
-Depuis ce dossier :
+Les URLs du site n'ont pas d'extension (`/notre-approche` et non
+`/notre-approche.html`) et les liens sont absolus (`/assets/...`), comme sur
+GitHub Pages. Il faut donc passer par le petit serveur local fourni :
 
 ```bash
-python3 -m http.server 8000
+/usr/bin/python3 tools/serve.py 8000
 ```
 
-Puis ouvrir http://localhost:8000 dans un navigateur.
+Puis ouvrir http://localhost:8000 dans un navigateur (ouvrir les fichiers
+HTML directement ne fonctionne plus).
 
 ## 2. Personnaliser avant mise en ligne
 
