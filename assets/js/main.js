@@ -33,15 +33,19 @@ function initObjetFromUrl() {
 function initHeroParallax() {
   const hero = document.querySelector(".hero");
   const img = document.querySelector(".hero-media img");
+  const card = document.querySelector(".hero-content");
   if (!hero || !img) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const maxShift = 140; // px — reste dans la marge prévue par le CSS (image surdimensionnée)
+  const photoShift = 140; // px — la photo descend lentement (marge prévue par le CSS)
+  const cardShift = 120; // px — la carte monte plus vite que la page : autre rythme
   let ticking = false;
 
   function update() {
     const heroHeight = hero.offsetHeight || 1;
     const progress = Math.min(Math.max(-hero.getBoundingClientRect().top / heroHeight, 0), 1);
-    img.style.transform = `translate3d(0, ${progress * maxShift}px, 0)`;
+    img.style.transform = `translate3d(0, ${progress * photoShift}px, 0)`;
+    if (card) card.style.transform = `translate3d(0, ${-progress * cardShift}px, 0)`;
     ticking = false;
   }
 
