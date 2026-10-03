@@ -192,14 +192,10 @@ section.tight { padding: 48px 0; }
   text-decoration: none;
 }
 
-.brand-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: var(--forest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.brand-logo {
+  height: 42px;
+  width: auto;
+  display: block;
   flex-shrink: 0;
 }
 
@@ -250,7 +246,7 @@ section.tight { padding: 48px 0; }
 @media (max-width: 860px) {
   .nav-links {
     position: fixed;
-    top: 68px;
+    top: 71px;
     left: 0;
     right: 0;
     background: var(--paper);

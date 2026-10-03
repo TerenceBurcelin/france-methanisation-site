@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="brand" style="margin-bottom:14px;">
-            <span class="brand-mark"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c-4 5.5-6 8.8-6 11a6 6 0 0 0 12 0c0-2.2-2-5.5-6-11z" fill="var(--amber)"/></svg></span>
+            <img class="brand-logo" src="/assets/img/logo.png" alt="" width="38" height="42">
             <span class="brand-name" style="color:#fff;">France Méthanisation</span>
           </a>
           <p>Des unités de méthanisation locales, à taille humaine, qui valorisent les biodéchets de nos territoires.</p>
