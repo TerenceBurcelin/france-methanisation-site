@@ -1089,3 +1089,140 @@ section.tight { padding: 48px 0; }
 .fm-pin svg { width: 40px; height: 52px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.35)); }
 .leaflet-popup-content { font-family: "Inter", sans-serif; font-size: 0.92rem; line-height: 1.45; margin: 14px 18px; }
 .leaflet-popup-content strong { font-family: "Fraunces", serif; font-size: 1.05rem; color: var(--forest-dark); }
+
+/* ---------------- Menus déroulants des onglets simples ---------------- */
+
+.site-header .nav-links a.dropdown-panel--link {
+  color: var(--ink);
+  font-size: inherit;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+}
+.dropdown-panel--link .dropdown-list { justify-content: center; gap: 10px; border-left: 0; }
+.dropdown-title {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  color: var(--forest-dark);
+  padding-left: 16px;
+  border-left: 3px solid var(--amber);
+  transition: color 0.15s ease;
+}
+.dropdown-text { margin: 0; padding-left: 19px; font-size: 0.92rem; color: var(--ink-soft); }
+.dropdown-cta {
+  padding-left: 19px;
+  margin-top: 4px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--forest);
+}
+.dropdown-cta span { display: inline-block; transition: transform 0.15s ease; }
+.dropdown-panel--link:hover .dropdown-title { color: var(--amber-dark); }
+.dropdown-panel--link:hover .dropdown-cta span { transform: translateX(4px); }
+
+@media (max-width: 860px) {
+  .has-dropdown > .dropdown:has(.dropdown-panel--link) { display: none !important; }
+}
+
+/* ---------------- Équipe : lien et panneau latéral ---------------- */
+
+.team-card { display: flex; flex-direction: column; }
+.team-body { flex: 1; display: flex; flex-direction: column; }
+.team-more {
+  margin-top: auto;
+  align-self: center;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+html.no-scroll { overflow: hidden; }
+
+.side-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(15, 31, 24, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+.side-overlay.is-open { opacity: 1; visibility: visible; transition: opacity 0.3s ease; }
+
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 310;
+  width: min(620px, 100%);
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  box-shadow: -30px 0 60px -30px rgba(0, 0, 0, 0.45);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.38s cubic-bezier(0.22, 0.8, 0.3, 1), visibility 0s linear 0.38s;
+}
+.side-panel.is-open {
+  transform: none;
+  visibility: visible;
+  transition: transform 0.38s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+.side-panel-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  margin: 26px 40px 10px;
+  padding: 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.side-panel-close span {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+.side-panel-close:hover { color: var(--forest-dark); }
+.side-panel-body { flex: 1; overflow-y: auto; padding: 14px 40px 28px; }
+.side-panel-footer { padding: 20px 40px 26px; border-top: 1px solid var(--line); }
+.side-panel-footer .btn { width: 100%; justify-content: center; }
+
+.member-head { display: flex; align-items: center; gap: 22px; margin-bottom: 24px; }
+.member-head img {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: top center;
+  background: var(--paper-deep);
+}
+.member-head h3 { font-size: 1.6rem; margin-bottom: 4px; }
+.member-head .team-role { margin: 0; }
+.member-list { margin: 0; padding-left: 20px; color: var(--ink-soft); font-size: 0.95rem; }
+.member-list li { margin-bottom: 8px; }
+
+@media (max-width: 560px) {
+  .side-panel-close { margin: 20px 22px 6px; }
+  .side-panel-body { padding: 10px 22px 22px; }
+  .side-panel-footer { padding: 16px 22px 20px; }
+  .member-head { gap: 16px; }
+  .member-head img { width: 84px; height: 84px; }
+  .member-head h3 { font-size: 1.3rem; }
+}

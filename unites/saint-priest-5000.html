@@ -24,8 +24,36 @@
     </a>
     <nav>
       <ul class="nav-links">
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/notre-approche">Notre approche</a></li>
+        <li class="has-dropdown">
+          <a href="/">Accueil</a>
+          <div class="dropdown">
+            <a class="dropdown-panel dropdown-panel--link" href="/" tabindex="-1">
+              <div class="dropdown-list">
+                <strong class="dropdown-title">Accueil</strong>
+                <p class="dropdown-text">Des unités de méthanisation locales, conçues, installées et exploitées par France Méthanisation.</p>
+                <span class="dropdown-cta">Découvrir la page <span aria-hidden="true">→</span></span>
+              </div>
+              <div class="dropdown-media">
+                <img src="/assets/img/unite-rendu-3d-small.jpg" alt="" loading="lazy" width="800" height="511">
+              </div>
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="/notre-approche">Notre approche</a>
+          <div class="dropdown">
+            <a class="dropdown-panel dropdown-panel--link" href="/notre-approche" tabindex="-1">
+              <div class="dropdown-list">
+                <strong class="dropdown-title">Notre approche</strong>
+                <p class="dropdown-text">Pourquoi des unités à taille humaine : sécurité, absence de nuisances et ancrage dans le territoire.</p>
+                <span class="dropdown-cta">Découvrir la page <span aria-hidden="true">→</span></span>
+              </div>
+              <div class="dropdown-media">
+                <img src="/assets/img/nav-approche.jpg" alt="" loading="lazy" width="800" height="511">
+              </div>
+            </a>
+          </div>
+        </li>
         <li class="has-dropdown active">
           <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Nos unités<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="dropdown">
@@ -44,9 +72,36 @@
             </div>
           </div>
         </li>
-        <li><a href="/investisseurs">Investisseurs</a></li>
-        <li><a href="/equipe">L'équipe</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li class="has-dropdown">
+          <a href="/investisseurs">Investisseurs</a>
+          <div class="dropdown">
+            <a class="dropdown-panel dropdown-panel--link" href="/investisseurs" tabindex="-1">
+              <div class="dropdown-list">
+                <strong class="dropdown-title">Investisseurs</strong>
+                <p class="dropdown-text">Marché, modèle économique, trajectoire et équipe : tout pour rejoindre l'aventure.</p>
+                <span class="dropdown-cta">Découvrir la page <span aria-hidden="true">→</span></span>
+              </div>
+              <div class="dropdown-media">
+                <img src="/assets/img/nav-investisseurs.jpg" alt="" loading="lazy" width="800" height="511">
+              </div>
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="/contact">Contact</a>
+          <div class="dropdown">
+            <a class="dropdown-panel dropdown-panel--link" href="/contact" tabindex="-1">
+              <div class="dropdown-list">
+                <strong class="dropdown-title">Contact</strong>
+                <p class="dropdown-text">Élus, riverains, investisseurs ou partenaires : posez-nous vos questions.</p>
+                <span class="dropdown-cta">Découvrir la page <span aria-hidden="true">→</span></span>
+              </div>
+              <div class="dropdown-media">
+                <img src="/assets/img/nav-contact.jpg" alt="" loading="lazy" width="800" height="511">
+              </div>
+            </a>
+          </div>
+        </li>
       </ul>
     </nav>
     <div class="nav-cta">

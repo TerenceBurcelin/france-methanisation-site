@@ -23,8 +23,36 @@
     </a>
     <nav>
       <ul class="nav-links">
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/notre-approche">Notre approche</a></li>
+        <li class="has-dropdown">
+          <a href="/">Accueil</a>
+          <div class="dropdown">
+            <a class="dropdown-panel dropdown-panel--link" href="/" tabindex="-1">
+              <div class="dropdown-list">
+                <strong class="dropdown-title">Accueil</strong>
+                <p class="dropdown-text">Des unités de méthanisation locales, conçues, installées et exploitées par France Méthanisation.</p>
+                <span class="dropdown-cta">Découvrir la page <span aria-hidden="true">→</span></span>
+              </div>
+              <div class="dropdown-media">
+                <img src="/assets/img/unite-rendu-3d-small.jpg" alt="" loading="lazy" width="800" height="511">
+              </div>
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="/notre-approche">Notre approche</a>
+          <div class="dropdown">
+            <a class="dropdown-panel dropdown-panel--link" href="/notre-approche" tabindex="-1">
+              <div class="dropdown-list">
+                <strong class="dropdown-title">Notre approche</strong>
+                <p class="dropdown-text">Pourquoi des unités à taille humaine : sécurité, absence de nuisances et ancrage dans le territoire.</p>
+                <span class="dropdown-cta">Découvrir la page <span aria-hidden="true">→</span></span>
+              </div>
+              <div class="dropdown-media">
+                <img src="/assets/img/nav-approche.jpg" alt="" loading="lazy" width="800" height="511">
+              </div>
+            </a>
+          </div>
+        </li>
         <li class="has-dropdown">
           <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Nos unités<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="dropdown">
@@ -43,9 +71,36 @@
             </div>
           </div>
         </li>
-        <li><a href="/investisseurs" class="active">Investisseurs</a></li>
-        <li><a href="/equipe">L'équipe</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li class="has-dropdown">
+          <a href="/investisseurs" class="active">Investisseurs</a>
+          <div class="dropdown">
+            <a class="dropdown-panel dropdown-panel--link" href="/investisseurs" tabindex="-1">
+              <div class="dropdown-list">
+                <strong class="dropdown-title">Investisseurs</strong>
+                <p class="dropdown-text">Marché, modèle économique, trajectoire et équipe : tout pour rejoindre l'aventure.</p>
+                <span class="dropdown-cta">Découvrir la page <span aria-hidden="true">→</span></span>
+              </div>
+              <div class="dropdown-media">
+                <img src="/assets/img/nav-investisseurs.jpg" alt="" loading="lazy" width="800" height="511">
+              </div>
+            </a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="/contact">Contact</a>
+          <div class="dropdown">
+            <a class="dropdown-panel dropdown-panel--link" href="/contact" tabindex="-1">
+              <div class="dropdown-list">
+                <strong class="dropdown-title">Contact</strong>
+                <p class="dropdown-text">Élus, riverains, investisseurs ou partenaires : posez-nous vos questions.</p>
+                <span class="dropdown-cta">Découvrir la page <span aria-hidden="true">→</span></span>
+              </div>
+              <div class="dropdown-media">
+                <img src="/assets/img/nav-contact.jpg" alt="" loading="lazy" width="800" height="511">
+              </div>
+            </a>
+          </div>
+        </li>
       </ul>
     </nav>
     <div class="nav-cta">
@@ -160,7 +215,7 @@
   </div>
 </section>
 
-<section>
+<section id="equipe">
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">L'équipe</span>
@@ -168,32 +223,52 @@
     </div>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-photo"><img src="/assets/img/team-pierrick.png" alt="Pierrick Bonnet, dirigeant de France Méthanisation"></div>
+        <div class="team-photo"><img src="/assets/img/team-pierrick.png" alt="Pierrick Bonnet"></div>
         <div class="team-body">
           <h3>Pierrick Bonnet</h3>
-          <p class="team-role">Dirige la société &amp; négocie les territoires</p>
+          <p class="team-role">Sécurise les contrats d'approvisionnement</p>
           <p>Président de Feedbac, société gérant 500 k€ de chiffre d'affaires.</p>
+          <button type="button" class="step-link team-more" data-member="pierrick" aria-haspopup="dialog" aria-label="En savoir plus sur Pierrick Bonnet">En savoir plus <span aria-hidden="true">→</span></button>
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo"><img src="/assets/img/team-pacome.png" alt="Pacôme Becerro, en charge de la sécurisation des approvisionnements"></div>
+        <div class="team-photo"><img src="/assets/img/team-pacome.png" alt="Pacôme Becerro"></div>
         <div class="team-body">
           <h3>Pacôme Becerro</h3>
-          <p class="team-role">Sécurise les contrats d'approvisionnement</p>
+          <p class="team-role">Dirige la société &amp; négocie les territoires</p>
           <p>Président de BICY, collecte de biodéchets : 1,2 M€ de CA développé, 4 territoires, 20 salariés.</p>
+          <button type="button" class="step-link team-more" data-member="pacome" aria-haspopup="dialog" aria-label="En savoir plus sur Pacôme Becerro">En savoir plus <span aria-hidden="true">→</span></button>
         </div>
       </div>
       <div class="team-card">
-        <div class="team-photo"><img src="/assets/img/team-terence.png" alt="Terence Burcelin, en charge de l'installation des unités et du financement"></div>
+        <div class="team-photo"><img src="/assets/img/team-terence.png" alt="Terence Burcelin"></div>
         <div class="team-body">
           <h3>Terence Burcelin</h3>
           <p class="team-role">Installe les unités &amp; finance la société</p>
           <p>Ingénieur centralien, 10 ans d'expérience dans le déchet, dirigeant de TEMA Holding Investissement.</p>
+          <button type="button" class="step-link team-more" data-member="terence" aria-haspopup="dialog" aria-label="En savoir plus sur Terence Burcelin">En savoir plus <span aria-hidden="true">→</span></button>
         </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:32px;">
-      <a href="/equipe" class="btn btn-ghost">Voir tous les profils</a>
+  </div>
+</section>
+
+<section class="section-alt" id="ecosysteme">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Notre écosystème</span>
+      <h2>Un adossement direct à des entreprises déjà en activité</h2>
+      <p class="lede" style="margin-left:auto;margin-right:auto;">France Méthanisation n'est pas un projet isolé : elle s'appuie dès sa création sur les réseaux et l'expertise opérationnelle de deux sociétés portées par ses fondateurs.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>BICY — Collecte de biodéchets</h3>
+        <p>Réseau de collecte de biodéchets actif sur 4 territoires avec 20 salariés. Les 5 premières unités France Méthanisation seront adossées aux gisements déjà exploités par BICY, ce qui sécurise l'approvisionnement dès le lancement.</p>
+      </div>
+      <div class="card">
+        <h3>TEMA Holding Investissement</h3>
+        <p>Structure d'investissement dirigée par Terence Burcelin, apportant une expertise financière et industrielle au montage et au financement de chaque unité.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -253,9 +328,68 @@
   </div>
 </section>
 
+<div class="side-overlay" aria-hidden="true"></div>
+<aside class="side-panel" role="dialog" aria-modal="true" aria-label="Profil d'un membre de l'équipe">
+  <button type="button" class="side-panel-close"><span aria-hidden="true">✕</span> Fermer le panneau</button>
+  <div class="side-panel-body"></div>
+  <div class="side-panel-footer">
+    <a class="btn btn-primary" id="side-panel-contact" href="/contact">Contacter</a>
+  </div>
+</aside>
+
+<template id="member-pierrick" data-name="Pierrick Bonnet">
+  <header class="member-head">
+    <img src="/assets/img/team-pierrick.png" alt="Pierrick Bonnet">
+    <div>
+      <h3>Pierrick Bonnet</h3>
+      <p class="team-role">Sécurise les contrats d'approvisionnement</p>
+    </div>
+  </header>
+  <p>Co-fondateur de Feedbac depuis 2021, entreprise à impact dédiée à la gestion et la valorisation locale des biodéchets à Lyon et sa périphérie. Membre du réseau d'entrepreneurs GEOs depuis 2024.</p>
+  <ul class="member-list">
+    <li>Co-fondateur de Feedbac (depuis 2021) — 500 k€ de chiffre d'affaires en gestion</li>
+    <li>Passé par l'immobilier et la relation commerciale (Immobilier Conseil Implantation Développement, Volkswagen Central Autos)</li>
+    <li>Sécurise les contrats d'approvisionnement en biodéchets des futures unités</li>
+  </ul>
+</template>
+
+<template id="member-pacome" data-name="Pacôme Becerro">
+  <header class="member-head">
+    <img src="/assets/img/team-pacome.png" alt="Pacôme Becerro">
+    <div>
+      <h3>Pacôme Becerro</h3>
+      <p class="team-role">Dirige la société &amp; négocie les territoires</p>
+    </div>
+  </header>
+  <p>Co-fondateur de BICY (BicyCompost) depuis 2020, qui collecte à vélo les biodéchets des professionnels bordelais pour les valoriser en compost. Un double parcours commercial et international avant l'entrepreneuriat.</p>
+  <ul class="member-list">
+    <li>Co-fondateur de BICY (depuis 2020) — 1,2 M€ de chiffre d'affaires développé, 4 territoires, 20 salariés</li>
+    <li>Responsable commercial hotelf1 France chez Accor (2017-2022), puis business developer e-commerce Europe chez Griesser France</li>
+    <li>Débuts de carrière chez Puig (Panama) et The Walt Disney Company</li>
+    <li>Dirige France Méthanisation et négocie les territoires d'implantation des futures unités</li>
+  </ul>
+</template>
+
+<template id="member-terence" data-name="Terence Burcelin">
+  <header class="member-head">
+    <img src="/assets/img/team-terence.png" alt="Terence Burcelin">
+    <div>
+      <h3>Terence Burcelin</h3>
+      <p class="team-role">Installe les unités &amp; finance la société</p>
+    </div>
+  </header>
+  <p>Ingénieur centralien, directeur général de BICY (BicyCompost) depuis 2020 et dirigeant de TEMA Holding depuis 5 ans — un double ancrage opérationnel et financier dans l'économie circulaire.</p>
+  <ul class="member-list">
+    <li>Directeur général de BICY (depuis 2020) — valorisation de 65 000 t/an de biodéchets à Bordeaux</li>
+    <li>Fondateur de Lichen (2018-2019), start-up de traitement des micropolluants de l'eau</li>
+    <li>Directeur général de TEMA Holding depuis 5 ans, family office dédié aux projets à impact, qui finance France Méthanisation</li>
+  </ul>
+</template>
+
 <footer class="site-footer" id="footer"></footer>
 <script src="/assets/js/main.js"></script>
 <script src="/assets/js/footer.js"></script>
 <script src="/assets/js/cookies.js"></script>
+<script src="/assets/js/team-panel.js"></script>
 </body>
 </html>

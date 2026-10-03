@@ -15,12 +15,20 @@ const FORM_ENDPOINT = "";
 const CONTACT_EMAIL = "contact@france-methanisation.fr";
 
 document.addEventListener("DOMContentLoaded", () => {
+  initObjetFromUrl();
   initNav();
   initYear();
   initForms();
   initHeroParallax();
   initStickyHeader();
 });
+
+function initObjetFromUrl() {
+  const field = document.getElementById("c-objet");
+  if (!field) return;
+  const objet = new URLSearchParams(window.location.search).get("objet");
+  if (objet) field.value = objet.slice(0, 200);
+}
 
 function initHeroParallax() {
   const hero = document.querySelector(".hero");
@@ -186,8 +194,9 @@ function openMailFallback(kind, data) {
       `E-mail : ${data.email || ""}`,
     ];
   } else {
-    subject = `Contact site — ${data.profil || "Visiteur"}`;
+    subject = data.objet || `Contact site — ${data.profil || "Visiteur"}`;
     bodyLines = [
+      `Objet : ${data.objet || "-"}`,
       `Nom : ${data.nom || ""}`,
       `E-mail : ${data.email || ""}`,
       `Profil : ${data.profil || "-"}`,

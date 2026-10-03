@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <li><a href="/notre-approche">Notre approche</a></li>
             <li><a href="/unites/saint-priest-5000">Unité St Priest 5000</a></li>
             <li><a href="/investisseurs">Investisseurs</a></li>
-            <li><a href="/equipe">L'équipe</a></li>
           </ul>
         </div>
         <div>
