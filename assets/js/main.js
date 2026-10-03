@@ -108,12 +108,87 @@ function initNav() {
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
   if (!toggle || !links) return;
-  toggle.addEventListener("click", () => {
-    links.classList.toggle("open");
+
+  // Menu mobile : cadre flottant. Il se ferme par un clic en dehors du cadre,
+  // par Échap, ou par le bouton « précédent » (l'ouverture ajoute une entrée
+  // d'historique, comme pour l'agrandissement des photos).
+  const backdrop = document.createElement("div");
+  backdrop.className = "nav-backdrop";
+  document.body.appendChild(backdrop);
+
+  const desktop = window.matchMedia("(min-width: 861px)");
+  let isOpen = false;
+  let pushed = false;
+  let pendingHref = null;
+
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-controls", "nav-menu");
+  links.id = "nav-menu";
+
+  function show() {
+    isOpen = true;
+    links.classList.add("open");
+    backdrop.classList.add("is-visible");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Fermer le menu");
+    history.pushState({ fmMenu: true }, "");
+    pushed = true;
+  }
+
+  function hide() {
+    isOpen = false;
+    links.classList.remove("open");
+    backdrop.classList.remove("is-visible");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Ouvrir le menu");
+    document.querySelectorAll(".has-dropdown.open").forEach((item) => {
+      item.classList.remove("open");
+      const btn = item.querySelector(".nav-dropdown-toggle");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function requestClose() {
+    if (!isOpen) return;
+    if (pushed && history.state && history.state.fmMenu) history.back(); // popstate fermera le menu
+    else hide();
+  }
+
+  toggle.addEventListener("click", () => (isOpen ? requestClose() : show()));
+  backdrop.addEventListener("click", requestClose);
+  document.addEventListener("click", (e) => {
+    if (isOpen && !links.contains(e.target) && !toggle.contains(e.target)) requestClose();
   });
-  links.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => links.classList.remove("open"))
-  );
+  document.addEventListener("keydown", (e) => {
+    if (isOpen && e.key === "Escape") requestClose();
+  });
+
+  window.addEventListener("popstate", () => {
+    pushed = false;
+    if (isOpen) hide();
+    if (pendingHref) {
+      const href = pendingHref;
+      pendingHref = null;
+      window.location.href = href;
+    }
+  });
+
+  // Un lien du menu : on referme proprement (sans laisser d'entrée d'historique en trop), puis on y va.
+  links.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (!a || !isOpen || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    if (pushed && history.state && history.state.fmMenu) {
+      e.preventDefault();
+      pendingHref = a.href;
+      history.back();
+    } else {
+      hide();
+    }
+  });
+
+  desktop.addEventListener("change", () => {
+    if (desktop.matches && isOpen) hide();
+  });
 }
 
 function initYear() {
